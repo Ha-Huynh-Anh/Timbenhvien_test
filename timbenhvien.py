@@ -335,7 +335,7 @@ def get_hopital_list(dis_id):
     bv_id = bv_id.split(sep = ';')
     return bv_id
 
-diachi_user = st.sidebar.text_input("Vui lòng nhập đỉa chỉ để nhận đề xuất bệnh viện gần nhất")
+diachi_user = st.sidebar.text_input("**Vui lòng nhập đỉa chỉ để nhận đề xuất bệnh viện gần nhất**")
 if len(diachi_user) > 0:     
     user_coor = get_coor_goong(diachi_user)
 else: user_coor = ()
