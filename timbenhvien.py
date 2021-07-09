@@ -349,7 +349,7 @@ option1 = st.sidebar.radio("", ('Cần tư vấn bệnh viện theo triệu ch�
 
 
 
-st.sidebar.markdown(':email:')
+st.sidebar.markdown(':email: :email: :email:')
 check_box_1 = st.sidebar.checkbox("Bạn muốn nhận email về thông tin bệnh viện bạn đang quan tâm")
 if check_box_1:
     submitted_1 = False
