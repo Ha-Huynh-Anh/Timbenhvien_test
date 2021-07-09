@@ -335,8 +335,8 @@ def get_hopital_list(dis_id):
     bv_id = bv_id.split(sep = ';')
     return bv_id
 
-st.sidebar.markdown('Nhập **địa chỉ** để nhận được đề xuất bệnh viện **gần nhất**')
-diachi_user = st.sidebar.text_input("")
+st.sidebar.markdown(':house: Nhập **địa chỉ** để nhận được đề xuất cơ sở khám bệnh **gần nhất**:')
+diachi_user = st.sidebar.text_input("Số nhà, tên đường, quận, thành phố")
 if len(diachi_user) > 0:     
     user_coor = get_coor_goong(diachi_user)
 else: user_coor = ()
