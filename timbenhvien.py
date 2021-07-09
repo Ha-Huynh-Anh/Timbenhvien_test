@@ -335,6 +335,10 @@ def get_hopital_list(dis_id):
     bv_id = bv_id.split(sep = ';')
     return bv_id
 
+diachi_user = st.sidebar.text_input("Vui lòng nhập đỉa chỉ để nhận đề xuất bệnh viện gần nhất")
+if len(diachi_user) > 0:     
+    user_coor = get_coor_goong(diachi_user)
+else: user_coor = ()
 
 df_1, df_2 = get_data()
 st.sidebar.subheader('Bạn đang tìm bệnh viện theo tiêu chí:')
@@ -343,10 +347,7 @@ option1 = st.sidebar.radio("", ('Cần tư vấn bệnh viện theo triệu ch�
     'Khám sức khỏe cho người nước ngoài', 'Khám sức khỏe để xuất ngoại'))
 
 
-diachi_user = st.sidebar.text_input("Vui lòng nhập đỉa chỉ ở đây")
-if len(diachi_user) > 0:     
-    user_coor = get_coor_goong(diachi_user)
-else: user_coor = ()
+
 
 check_box_1 = st.sidebar.checkbox("Bạn muốn nhận email về thông tin bệnh viện bạn đang quan tâm")
 if check_box_1:
@@ -397,7 +398,7 @@ elif option1 == 'Cần tư vấn bệnh viện theo triệu chứng':
                 result_hospital['geodesic'] = result_hospital.coor.apply(lambda x: geodesic(x, user_coor).km)
                 result_hospital = result_hospital.sort_values('geodesic',ascending=True)
                 top_hospital = result_hospital.iloc[0:3,:]
-                st.markdown('**Danh sách các bệnh viện gần vị trí của bạn**')
+                st.markdown('**Các bệnh viện gần vị trí của bạn**')
                 for input_id in list(top_hospital.loc[:,'hospital_id']):
                     print_hospital_info_txt(input_id,user_coor)
 
