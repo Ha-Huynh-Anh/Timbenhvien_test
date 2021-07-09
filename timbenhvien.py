@@ -349,7 +349,7 @@ option1 = st.sidebar.radio("", ('Cần tư vấn bệnh viện theo triệu ch�
 
 
 
-
+st.sidebar.markdown(':email:')
 check_box_1 = st.sidebar.checkbox("Bạn muốn nhận email về thông tin bệnh viện bạn đang quan tâm")
 if check_box_1:
     submitted_1 = False
@@ -372,7 +372,8 @@ elif option1 == 'Khám sức khỏe cho người nước ngoài':
 elif option1 == 'Khám sức khỏe để xuất ngoại':
     df_result = df_1[df_1.iloc[:,6] == 'x'].iloc[:,[0,1,3,4,8,9]]
 elif option1 == 'Cần tư vấn bệnh viện theo triệu chứng':
-    sym_input_vie = st.multiselect('Các triệu chứng của bạn', sym_df.viet.values)
+    st.markdown(':pill: Các triệu chứng của bạn')
+    sym_input_vie = st.multiselect('', sym_df.viet.values)
     # translate vie into eng
     # test lại bằng streamlit 0.80.0
     sym_input_eng = trans_sym(sym_input_vie)
